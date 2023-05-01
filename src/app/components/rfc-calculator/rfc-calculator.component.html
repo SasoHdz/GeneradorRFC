@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        [(ngModel)]="name"
+        [ngModelOptions]="{standalone: true}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputApaterno1" class="form-label"
+        >Apellido Paterno</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputApaterno1"
+        [(ngModel)]="a_paterno"
+        [ngModelOptions]="{standalone: true}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputAmaterno1" class="form-label"
+        >Apellido Materno</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputAmaterno1"
+        [(ngModel)]="a_materno"
+        [ngModelOptions]="{standalone: true}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputFechaNac1" class="form-label"
+        >Fecha Nacimiento</label
+      >
+      <input
+        type="date"
+        class="form-control"
+        id="exampleInputFechaNac1"
+        [(ngModel)]="fechaNac"
+        [ngModelOptions]="{standalone: true}"
+        required
+      />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="getRFC()">Generar</button>
+  </form>
+</div>
