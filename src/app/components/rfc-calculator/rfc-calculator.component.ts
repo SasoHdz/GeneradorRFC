@@ -12,6 +12,7 @@ export class RfcCalculatorComponent {
   a_materno = '';
   fechaNac: any = '';
   myRfc = new RFC(this.name,this.a_paterno,this.a_materno,this.fechaNac);
+  showRFC = '';
 
   getValues(){
     console.log(this.fechaNac)
@@ -22,8 +23,19 @@ export class RfcCalculatorComponent {
     this.myRfc.setAPaterno(this.a_paterno);
     this.myRfc.setAMaterno(this.a_materno);
     this.myRfc.setFechaNac(this.fechaNac);
-    console.log(this.myRfc.claveAPaterno());
-    console.log(this.myRfc.getRfc())
+    this.showRFC=this.myRfc.getRfc();
+  }
+
+  cleanDatos(){
+    this.myRfc.setName('');
+    this.myRfc.setAPaterno('');
+    this.myRfc.setAMaterno('');
+    this.myRfc.setFechaNac('');
+    this.showRFC='';
+    this.name = '';
+    this.a_materno = '';
+    this.a_paterno = '';
+    this.fechaNac = '';
   }
 
 }

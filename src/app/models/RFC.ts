@@ -132,6 +132,48 @@ const valoresClaveHomonimia: any = {
   33:'Z'
 }
 
+const tablaNoIII: any = {
+  '0':0,
+  '1':1,
+  '2':2,
+  '3':3,
+  '4':4,
+  '5':5,
+  '6':6,
+  '7':7,
+  '8':8,
+  '9':9,
+  'A':10,
+  'B':11,
+  'C':12,
+  'D':13,
+  'E':14,
+  'F':15,
+  'G':16,
+  'H':17,
+  'I':18,
+  'J':19,
+  'K':20,
+  'L':21,
+  'M':22,
+  'N':23,
+  'Ñ':24,
+  'O':25,
+  'P':26,
+  'Q':27,
+  'R':28,
+  'S':29,
+  'T':30,
+  'U':31,
+  'V':32,
+  'W':33,
+  'X':34,
+  'Y':35,
+  'Z':36,
+  ' ':37,
+  default: 0
+}
+
 export class RFC {
   name: string = '';
   a_paterno: string = '';
@@ -312,8 +354,28 @@ export class RFC {
 
     let partFecha = this.generatorPartFechaNac();
     let claveDiferencialHomonimo = this.separandoValores();
-    console.log(this.separandoValores())
-    return alfabetic+'-'+partFecha;
+    let RFC = alfabetic+partFecha+claveDiferencialHomonimo;
+    console.log(this.valorIdentificador(RFC));
+
+    return RFC+this.valorIdentificador(RFC);
   }
   //Falta formula de registro federal v(13)+v2(12).......+v12(2);
+
+  valorIdentificador(theRfc:String){
+    let arrayRFC = theRfc.split('');
+    let v = 13;
+    let suma  =0;
+    for(let i = 0;i<12;i++){
+      console.log(`${v-i} * ${tablaNoIII[arrayRFC[i]]}`);
+      suma += (v-i) * tablaNoIII[arrayRFC[i]];
+    }
+    let digitVerificator;
+
+    (suma%11 === 0)?
+      digitVerificator = 0:
+      digitVerificator = 11 - (suma%11);
+
+
+    return digitVerificator;
+  }
 }
