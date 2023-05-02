@@ -294,15 +294,15 @@ export class RFC {
   generatorPartAlfabeticOneA(): string {
     //Sexta Regla un solo apellido
     let claveAlfabetic = '';
-    this.a_materno.length > 0
-      ? (claveAlfabetic = `${this.a_materno.substring(
+    this.a_materno != ''
+      ? (claveAlfabetic = `${this.a_materno.toLocaleUpperCase().substring(
           0,
-          1
-        )}${this.name.substring(0, 1)}`)
-      : (claveAlfabetic = `${this.a_paterno.substring(
+          2
+        )}${this.name.toLocaleUpperCase().substring(0, 2)}`)
+      : (claveAlfabetic = `${this.a_paterno.toLocaleUpperCase().substring(
           0,
-          1
-        )}${this.name.substring(0, 1)}`);
+          2
+        )}${this.name.toLocaleUpperCase().substring(0, 2)}`);
 
     return claveAlfabetic;
   }
